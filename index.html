@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Games: Capybara &amp; Monkey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--ink:#2b2118;--wood:#8d5a2b;--leaf:#2f9e44;--leaf-dark:#1b6b2c;--sun:#ffd43b;--cream:#fffbea;--grape:#7b5cff;--coral:#ff5c8a}
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%}
+  body{font-family:'Baloo 2',system-ui,sans-serif;color:var(--ink);min-height:100vh;
+       background:radial-gradient(circle at 88% 10%,#fff3bf 0 70px,transparent 71px),linear-gradient(#a5d8ff 0%,#d3f9d8 60%,#8ce99a 100%)}
+  .deco{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+  .deco span{position:absolute;font-size:90px;opacity:.85}
+  .cloud{position:absolute;top:60px;font-size:60px;opacity:.9;animation:drift 40s linear infinite}
+  @keyframes drift{from{transform:translateX(-150px)}to{transform:translateX(110vw)}}
+  .wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:36px 18px 60px;text-align:center}
+  h1{margin:0;font-size:clamp(38px,7vw,68px);font-weight:800;color:var(--leaf-dark);
+     text-shadow:3px 3px 0 var(--sun),6px 6px 0 rgba(0,0,0,.1)}
+  .tag{margin:4px 0 28px;font-size:clamp(18px,2.6vw,22px);font-weight:600;color:#2b8a3e}
+  .games{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .game{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--ink);
+        background:var(--cream);border:4px solid var(--wood);border-radius:28px;padding:22px 20px 24px;
+        box-shadow:0 8px 0 #5c3a1a,0 16px 30px rgba(0,0,0,.15);transition:transform .15s, box-shadow .15s}
+  .game:hover,.game:focus-visible{transform:translateY(-6px) rotate(-1deg);box-shadow:0 14px 0 #5c3a1a,0 22px 34px rgba(0,0,0,.18);outline:none}
+  .game:active{transform:translateY(4px);box-shadow:0 3px 0 #5c3a1a}
+  .game svg{width:150px;height:130px}
+  .game:hover svg{animation:hop .6s ease-in-out}
+  @keyframes hop{50%{transform:translateY(-16px) rotate(-5deg)}}
+  .game h2{margin:0;font-size:32px;line-height:1.1}
+  .game p{margin:0;font-size:18px;color:#495057;max-width:320px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:4px 0}
+  .chip{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:0 10px;font-weight:700;font-size:15px;color:var(--ink)}
+  .play{margin-top:8px;display:inline-block;font-weight:800;font-size:22px;padding:8px 28px;border:3px solid var(--ink);border-radius:16px;
+        box-shadow:0 4px 0 var(--ink);color:var(--ink)}
+  .capy .play{background:#c5f6fa} .monkey .play{background:var(--sun)}
+  .capy h2{color:#0b7285} .monkey h2{color:var(--wood)}
+  footer{margin-top:34px;font-size:15px;color:#2b8a3e;font-weight:600}
+</style>
+</head>
+<body>
+<div class="deco" aria-hidden="true">
+  <span class="cloud">☁️</span>
+  <span style="left:-20px;bottom:-12px">🌴</span>
+  <span style="right:-14px;bottom:-14px">🌴</span>
+  <span style="left:35%;bottom:-40px;font-size:70px">🌿</span>
+</div>
+
+<main class="wrap">
+  <h1>🎮 Math Games</h1>
+  <p class="tag">Pick a buddy and start practicing!</p>
+
+  <div class="games">
+    <a class="game capy" href="math-capybara.html">
+      <svg viewBox="0 0 340 240" aria-hidden="true">
+        <ellipse cx="168" cy="224" rx="124" ry="11" fill="#3c7f3a" opacity=".25"/>
+        <g fill="#8c5a35"><rect x="74" y="184" width="27" height="40" rx="11"/><rect x="114" y="190" width="27" height="34" rx="11"/><rect x="186" y="190" width="27" height="34" rx="11"/><rect x="226" y="184" width="27" height="40" rx="11"/></g>
+        <ellipse cx="160" cy="158" rx="110" ry="60" fill="#b87a4b"/>
+        <ellipse cx="218" cy="60" rx="11" ry="14" fill="#8c5a35"/><ellipse cx="258" cy="58" rx="11" ry="14" fill="#8c5a35"/>
+        <rect x="188" y="56" width="114" height="102" rx="42" fill="#b87a4b"/>
+        <rect x="252" y="84" width="72" height="66" rx="26" fill="#cf9462"/>
+        <ellipse cx="308" cy="102" rx="9" ry="7" fill="#4a2c1a"/>
+        <circle cx="234" cy="42" r="15" fill="#ff9d2e"/><path d="M234 28 q10 -12 18 -4 q-8 8 -18 4z" fill="#5fbf5a"/>
+        <path d="M230 101 q10 -13 20 0" fill="none" stroke="#3a2314" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="246" cy="122" r="10" fill="#ff5c8a" opacity=".55"/>
+        <path d="M272 126 q16 24 32 0z" fill="#7a2038" stroke="#3a2314" stroke-width="4" stroke-linejoin="round"/>
+      </svg>
+      <h2>Capybara Math</h2>
+      <p>A math quiz for <b>multiplication</b> and <b>division</b>. Answer with the number pad and make Capy happy!</p>
+      <div class="chips"><span class="chip">✖️ Multiply</span><span class="chip">➗ Divide</span></div>
+      <span class="play">Play ▶</span>
+    </a>
+
+    <a class="game monkey" href="math-monkey.html">
+      <svg viewBox="0 0 140 150" aria-hidden="true">
+        <ellipse cx="70" cy="108" rx="32" ry="30" fill="#a0632e"/>
+        <ellipse cx="70" cy="114" rx="20" ry="20" fill="#f3c98b"/>
+        <ellipse cx="50" cy="136" rx="13" ry="9" fill="#8d5a2b"/><ellipse cx="90" cy="136" rx="13" ry="9" fill="#8d5a2b"/>
+        <path d="M44 96 C 28 90, 20 76, 22 64" stroke="#8d5a2b" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M96 96 C 112 90, 120 76, 118 64" stroke="#8d5a2b" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <circle cx="30" cy="50" r="15" fill="#a0632e"/><circle cx="30" cy="50" r="8" fill="#f3c98b"/>
+        <circle cx="110" cy="50" r="15" fill="#a0632e"/><circle cx="110" cy="50" r="8" fill="#f3c98b"/>
+        <circle cx="70" cy="50" r="38" fill="#a0632e"/>
+        <path d="M70 24 C 50 24, 40 40, 44 56 C 40 72, 52 82, 70 82 C 88 82, 100 72, 96 56 C 100 40, 90 24, 70 24 Z" fill="#f3c98b"/>
+        <ellipse cx="57" cy="48" rx="7" ry="9" fill="#fff"/><circle cx="58" cy="49" r="4.5" fill="#2b2118"/>
+        <ellipse cx="83" cy="48" rx="7" ry="9" fill="#fff"/><circle cx="82" cy="49" r="4.5" fill="#2b2118"/>
+        <circle cx="48" cy="64" r="5" fill="#ff8787" opacity=".55"/><circle cx="92" cy="64" r="5" fill="#ff8787" opacity=".55"/>
+        <path d="M58 67 Q70 80 82 67 Q70 72 58 67 Z" fill="#c92a2a"/>
+        <text x="4" y="30" font-size="22">🍌</text>
+      </svg>
+      <h2>Math Monkey</h2>
+      <p>A math quiz for <b>fractions</b>: add, subtract, multiply and divide. Feed Momo a banana for every right answer!</p>
+      <div class="chips"><span class="chip">➕ Add</span><span class="chip">➖ Subtract</span><span class="chip">✖️ Multiply</span><span class="chip">➗ Divide</span></div>
+      <span class="play">Play ▶</span>
+    </a>
+  </div>
+
+  <footer>Have fun learning! 🌟</footer>
+</main>
+</body>
+</html>
